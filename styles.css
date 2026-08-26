@@ -491,7 +491,7 @@ button{ font:inherit; color:inherit; }
 .hero{
   min-height:100svh;
   display:flex; flex-direction:column; justify-content:center;
-  padding-block:clamp(92px,11vh,140px) clamp(48px,6vh,84px);
+  padding-block:clamp(76px,9vh,120px) clamp(40px,5vh,70px);
   overflow:hidden;
 }
 .hero__copy .eyebrow{ margin-bottom:.7em; }
