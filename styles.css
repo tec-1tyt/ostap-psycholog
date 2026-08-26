@@ -117,6 +117,18 @@ button{ font:inherit; color:inherit; }
   color:var(--ink-faint);
 }
 
+/* капсула-бейдж — нотка зі стилю readymag.com/designs/6149307 */
+.eyebrow--pill{
+  display:inline-block;
+  padding:.6em 1.3em;
+  border:1px solid var(--line-night);
+  border-radius:999px;
+  letter-spacing:.06em;
+  text-transform:none;
+  font-size:.83rem;
+  color:var(--on-night-soft);
+}
+
 .prose p{ margin:0 0 1.05em; color:var(--ink-soft); max-width:56ch; }
 .prose p:last-child{ margin-bottom:0; }
 .prose i{ font-family:var(--ff-display); font-style:italic; color:var(--ink); }
@@ -301,6 +313,20 @@ button{ font:inherit; color:inherit; }
 }
 .btn--ghost:hover{ background:currentColor; color:var(--night); border-color:currentColor; }
 
+/* капсула з круглою кнопкою-стрілкою зліва — нотка зі стилю readymag.com/designs/6149307 */
+.btn--arrow{ padding-left:.5em; gap:.75em; }
+.btn__circle{
+  display:grid; place-items:center;
+  width:2.15em; height:2.15em;
+  border-radius:50%;
+  background:var(--accent);
+  color:#fff;
+  flex:none;
+  transition:transform var(--t-med);
+}
+.btn__circle svg{ width:46%; height:46%; }
+.btn--arrow:hover .btn__circle{ transform:rotate(45deg); }
+
 .block[data-tone="dark"] .btn{
   background:var(--on-night); color:var(--night); border-color:var(--on-night);
 }
@@ -350,7 +376,14 @@ button{ font:inherit; color:inherit; }
 .hdr:not(.is-stuck){ color:var(--on-night); }
 .hdr:not(.is-stuck) .btn{ background:var(--on-night); color:var(--night); border-color:var(--on-night); }
 
-.hdr__logo{ display:flex; align-items:center; gap:10px; margin-right:auto; }
+.hdr__logo{
+  display:flex; align-items:center; gap:10px; margin-right:auto;
+  padding:.5em 1em .5em .8em;
+  border:1px solid var(--line-night);
+  border-radius:999px;
+  transition:border-color var(--t-med);
+}
+.hdr.is-stuck .hdr__logo{ border-color:var(--line); }
 .hdr__logo-mark{
   width:9px; height:9px; border-radius:50%;
   background:var(--accent);
@@ -491,25 +524,32 @@ button{ font:inherit; color:inherit; }
 .hero__portrait{ margin:0; }
 .hero__portrait .morph-frame{ aspect-ratio:4/5; }
 
+/* кругла чорна кнопка-стрілка — нотка зі стилю readymag.com/designs/6149307 */
 .hero__scroll{
-  position:absolute; left:50%; bottom:30px;
+  position:absolute; left:50%; bottom:34px;
   translate:-50% 0;
-  width:24px; height:40px;
+  width:52px; height:52px;
   border:1px solid var(--line-night);
-  border-radius:999px;
-  display:grid; place-items:start center;
-  padding-top:7px;
+  border-radius:50%;
+  display:grid; place-items:center;
+  color:var(--on-night);
+  background:rgba(242,238,231,.06);
+  backdrop-filter:blur(6px);
+  transition:background var(--t-fast), transform var(--t-fast), border-color var(--t-fast);
+  animation:scrollbob 2.6s ease-in-out infinite;
 }
-.hero__scroll span{
-  width:2px; height:7px; border-radius:2px;
-  background:var(--on-night-soft);
-  animation:scrolldot 1.9s ease-in-out infinite;
+.hero__scroll:hover{
+  background:var(--accent);
+  border-color:var(--accent);
+  transform:translate(-50%, -3px);
 }
-@keyframes scrolldot{
-  0%   { transform:translateY(0);    opacity:0; }
-  22%  { opacity:1; }
-  78%  { opacity:1; }
-  100% { transform:translateY(16px); opacity:0; }
+.hero__scroll svg{ width:20px; height:20px; }
+@keyframes scrollbob{
+  0%, 100% { transform:translate(-50%, 0); }
+  50%      { transform:translate(-50%, 7px); }
+}
+@media (prefers-reduced-motion:reduce){
+  .hero__scroll{ animation:none; }
 }
 
 /* --- 2. STATS --- */
