@@ -146,21 +146,26 @@ button{ font:inherit; color:inherit; }
   isolation:isolate;
   will-change:clip-path, transform;
 
-  /* краї блоку «розтікаються» з округленої вставки у повний екран */
+  /* плавний перехід — --p оновлюється щокадру зі скролу, а CSS-перехід
+     «доганяє» ціль замість миттєвого стрибка, звідси органічність */
+  transition:clip-path .45s cubic-bezier(.19,1,.22,1),
+             transform .45s cubic-bezier(.19,1,.22,1);
+
+  /* краї блоку м'яко розтікаються з ледь заокругленої вставки у повний екран */
   clip-path:inset(
-      calc((1 - var(--p)) * 1.6vh)
-      calc((1 - var(--p)) * 6vw)
+      calc((1 - var(--p)) * .8vh)
+      calc((1 - var(--p)) * 3vw)
       0
-      calc((1 - var(--p)) * 6vw)
+      calc((1 - var(--p)) * 3vw)
       round
-      calc((1 - var(--p)) * 90px)
-      calc((1 - var(--p)) * 90px)
-      calc((1 - var(--p)) * 24px)
-      calc((1 - var(--p)) * 24px)
+      calc((1 - var(--p)) * 46px)
+      calc((1 - var(--p)) * 46px)
+      calc((1 - var(--p)) * 14px)
+      calc((1 - var(--p)) * 14px)
   );
 
-  transform:translate3d(0, calc((1 - var(--p)) * 46px), 0)
-            scale(calc(.955 + var(--p) * .045));
+  transform:translate3d(0, calc((1 - var(--p)) * 20px), 0)
+            scale(calc(.978 + var(--p) * .022));
   transform-origin:50% 0;
 }
 
@@ -200,23 +205,24 @@ button{ font:inherit; color:inherit; }
   position:relative;
   overflow:hidden;
   background:var(--bg-warm);
+  transition:border-radius .45s cubic-bezier(.19,1,.22,1);
   border-radius:
-      calc(28px + (1 - var(--p)) * 120px)
-      calc(28px + (1 - var(--p)) * 60px)
-      calc(28px + (1 - var(--p)) * 110px)
-      calc(28px + (1 - var(--p)) * 70px)
-      / calc(28px + (1 - var(--p)) * 80px)
-        calc(28px + (1 - var(--p)) * 130px)
-        calc(28px + (1 - var(--p)) * 70px)
-        calc(28px + (1 - var(--p)) * 110px);
+      calc(28px + (1 - var(--p)) * 56px)
+      calc(28px + (1 - var(--p)) * 30px)
+      calc(28px + (1 - var(--p)) * 52px)
+      calc(28px + (1 - var(--p)) * 34px)
+      / calc(28px + (1 - var(--p)) * 38px)
+        calc(28px + (1 - var(--p)) * 60px)
+        calc(28px + (1 - var(--p)) * 34px)
+        calc(28px + (1 - var(--p)) * 52px);
   will-change:border-radius;
 }
 .morph-frame > img{
   width:100%; height:100%; object-fit:cover;
-  transform:scale(calc(1.1 - var(--p) * .1));
-  transition:transform .1s linear;
+  transform:scale(calc(1.045 - var(--p) * .045));
+  transition:transform .45s cubic-bezier(.19,1,.22,1);
 }
-.morph-frame--soft{ border-radius:calc(20px + (1 - var(--p)) * 70px); }
+.morph-frame--soft{ border-radius:calc(20px + (1 - var(--p)) * 34px); }
 .morph-frame--round{
   border-radius:calc(50% - var(--p) * 0%);
   aspect-ratio:1;
@@ -469,9 +475,10 @@ button{ font:inherit; color:inherit; }
 .hero{
   min-height:100svh;
   display:flex; flex-direction:column; justify-content:center;
-  padding-block:clamp(120px,16vh,190px) clamp(90px,12vh,140px);
+  padding-block:clamp(92px,11vh,140px) clamp(48px,6vh,84px);
   overflow:hidden;
 }
+.hero__copy .eyebrow{ margin-bottom:.7em; }
 .hero__bg{ position:absolute; inset:0; z-index:-1; }
 .hero__bg-img{
   width:100%; height:100%;
@@ -495,10 +502,10 @@ button{ font:inherit; color:inherit; }
 .hero__h1{
   font-family:var(--ff-display);
   font-weight:400;
-  font-size:clamp(2.6rem,6.6vw,5.4rem);
-  line-height:1.02;
+  font-size:clamp(2.3rem,5.6vw,4.6rem);
+  line-height:1.03;
   letter-spacing:-.025em;
-  margin:0 0 .42em;
+  margin:0 0 .3em;
 }
 .hero__note{
   max-width:54ch;
@@ -506,23 +513,34 @@ button{ font:inherit; color:inherit; }
   padding-left:clamp(16px,2vw,28px);
 }
 .hero__note p{
-  margin:0 0 .9em;
+  margin:0 0 .65em;
   color:var(--on-night-soft);
-  font-size:.97rem;
+  font-size:.92rem;
 }
 .hero__note p:last-child{ margin-bottom:0; }
 .hero__note i{ font-family:var(--ff-display); font-style:italic; color:var(--on-night); }
 .hero__note-q{
   font-family:var(--ff-display);
   font-style:italic;
-  font-size:1.32rem !important;
+  font-size:1.2rem !important;
   color:var(--on-night) !important;
-  margin-bottom:.75em !important;
+  margin-bottom:.5em !important;
 }
-.hero__actions{ display:flex; flex-wrap:wrap; gap:12px; margin-top:2.4em; }
+.hero__actions{ display:flex; flex-wrap:wrap; gap:12px; margin-top:1.5em; }
 
-.hero__portrait{ margin:0; }
-.hero__portrait .morph-frame{ aspect-ratio:4/5; }
+.hero__portrait{ margin:0; position:relative; }
+.hero__portrait .morph-frame{ aspect-ratio:4/5; position:relative; z-index:1; }
+/* тепле сяйво з фото «розтікається» на весь героєвий екран */
+.hero__portrait::before{
+  content:"";
+  position:absolute;
+  inset:-30%;
+  z-index:0;
+  background:
+    radial-gradient(closest-side, rgba(168,84,60,.38), rgba(168,84,60,0) 72%);
+  filter:blur(70px);
+  pointer-events:none;
+}
 
 /* кругла чорна кнопка-стрілка — нотка зі стилю readymag.com/designs/6149307 */
 .hero__scroll{
@@ -581,15 +599,30 @@ button{ font:inherit; color:inherit; }
 }
 
 /* --- 3. ABOUT --- */
-.about__grid{
-  display:grid;
-  grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr);
-  gap:var(--gap);
-  align-items:center;
+/* фото винесено з .wrap прямо в секцію — так воно може дотягнутись
+   до справжнього краю вʼюпорта, а не тільки до краю контейнера */
+#about{
+  overflow:hidden;
+  background:
+    radial-gradient(ellipse 70% 85% at 4% 46%, var(--bg-warm) 0%, rgba(230,225,216,0) 68%),
+    var(--bg);
 }
-.about__fig{ margin:0; }
+.about__fig{
+  margin:0;
+  position:absolute;
+  top:50%; left:0;
+  transform:translateY(-50%);
+  width:clamp(300px, 39vw, 560px);
+  z-index:1;
+}
 .about__fig .morph-frame{ aspect-ratio:4/5; }
 .about__fig img{ object-position:62% 40%; }
+
+.about__grid{ display:block; }
+.about__copy{
+  margin-left:calc(clamp(300px, 39vw, 560px) - var(--pad) + var(--gap));
+  max-width:640px;
+}
 
 /* --- 4. WORK --- */
 .work__grid{
@@ -628,27 +661,33 @@ button{ font:inherit; color:inherit; }
   transition:padding-left var(--t-fast), color var(--t-fast);
 }
 .lst li:hover{ padding-left:.7em; color:var(--accent); }
-.lst--no li{ color:var(--ink-faint); }
+.lst--no li{ padding-block:.55em; font-size:.9rem; color:var(--ink-faint); }
 .lst--no li:hover{ color:var(--ink-soft); }
 
 .work__note{
-  margin-top:1.6em;
-  font-size:.86rem;
+  margin-top:1.2em;
+  font-size:.82rem;
   color:var(--ink-faint);
   max-width:38ch;
 }
 
-.work__aside{ display:flex; flex-direction:column; gap:12px; }
+/* картки-плашки в один рядок, щоб секція вміщалась в один екран */
+.work__aside{
+  grid-column:1 / -1;
+  display:flex; flex-direction:row; flex-wrap:wrap;
+  gap:12px;
+}
 .card{
-  padding:clamp(18px,2vw,26px);
+  flex:1 1 220px;
+  padding:clamp(14px,1.6vw,20px) clamp(18px,2vw,24px);
   background:var(--bg);
   border:1px solid var(--line-soft);
   border-radius:var(--r-md);
   transition:transform var(--t-med), border-color var(--t-med);
 }
 .card:hover{ transform:translateY(-4px); border-color:var(--line); }
-.card b{ display:block; margin-bottom:.4em; font-size:.94rem; font-weight:500; }
-.card p{ margin:0; font-size:.86rem; color:var(--ink-soft); }
+.card b{ display:block; margin-bottom:.3em; font-size:.94rem; font-weight:500; }
+.card p{ margin:0; font-size:.84rem; color:var(--ink-soft); }
 
 /* --- 5. APPROACH --- */
 .approach__grid{
@@ -862,18 +901,16 @@ button{ font:inherit; color:inherit; }
 }
 
 /* --- FOOTER --- */
-.foot{
-  padding-block:34px;
-  border-top:1px solid var(--line-soft);
-  background:var(--bg);
-}
-.foot__in{
+.contact__foot{
   display:flex; align-items:center; justify-content:space-between;
   gap:16px; flex-wrap:wrap;
+  margin-top:clamp(56px,7vh,96px);
+  padding-top:24px;
+  border-top:1px solid var(--line-night);
   font-size:.82rem;
-  color:var(--ink-faint);
+  color:var(--on-night-soft);
 }
-.foot a:hover{ color:var(--accent); }
+.contact__foot a:hover{ color:var(--accent); }
 
 /* ---------- 6. АДАПТИВ ---------- */
 @media (max-width:1024px){
@@ -885,31 +922,38 @@ button{ font:inherit; color:inherit; }
   .hero__portrait{ order:-1; width:min(58vw,300px); }
   .hero__portrait .morph-frame{ aspect-ratio:1; }
 
-  .about__grid,
   .approach__grid,
   .contact__grid{ grid-template-columns:1fr; }
-  .about__fig{ order:-1; }
   .approach__fig{ order:-1; max-width:min(70vw,420px); }
+
+  /* нижче 1024px фото повертається у звичайний потік над текстом —
+     бо повний виліт до краю екрана має сенс лише на широких екранах */
+  #about{ background:var(--bg); }
+  .about__fig{
+    position:static;
+    transform:none;
+    width:100%;
+    margin:0 0 clamp(28px,4vw,44px);
+  }
+  .about__copy{ margin-left:0; max-width:none; }
   .about__fig .morph-frame{ aspect-ratio:16/10; }
   .about__fig img{ object-position:60% 35%; }
 
   .work__grid{ grid-template-columns:1fr 1fr; }
-  .work__aside{ grid-column:1 / -1; flex-direction:row; flex-wrap:wrap; }
-  .work__aside .card{ flex:1 1 240px; }
 }
 
 @media (max-width:720px){
   .block{
-    /* на мобільному морф мʼякший — щоб не зʼїдало краї */
+    /* на мобільному морф ще мʼякший — щоб не зʼїдало краї */
     clip-path:inset(
         0
-        calc((1 - var(--p)) * 3vw)
+        calc((1 - var(--p)) * 1.5vw)
         0
-        calc((1 - var(--p)) * 3vw)
-        round calc((1 - var(--p)) * 44px) calc((1 - var(--p)) * 44px) 0 0
+        calc((1 - var(--p)) * 1.5vw)
+        round calc((1 - var(--p)) * 22px) calc((1 - var(--p)) * 22px) 0 0
     );
-    transform:translate3d(0, calc((1 - var(--p)) * 28px), 0)
-              scale(calc(.985 + var(--p) * .015));
+    transform:translate3d(0, calc((1 - var(--p)) * 14px), 0)
+              scale(calc(.992 + var(--p) * .008));
   }
 
   /* на телефоні кнопка запису має бути видна без скролу:
@@ -927,7 +971,7 @@ button{ font:inherit; color:inherit; }
   .work__aside{ flex-direction:column; }
   .hero__actions .btn{ flex:1 1 auto; }
   .rail{ -webkit-mask-image:none; mask-image:none; }
-  .foot__in{ justify-content:center; text-align:center; }
+  .contact__foot{ justify-content:center; text-align:center; }
 }
 
 /* ---------- ДОСТУПНІСТЬ: без анімацій ---------- */
