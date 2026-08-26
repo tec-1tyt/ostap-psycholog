@@ -382,9 +382,11 @@ button{ font:inherit; color:inherit; }
 .hdr:not(.is-stuck){ color:var(--on-night); }
 .hdr:not(.is-stuck) .btn{ background:var(--on-night); color:var(--night); border-color:var(--on-night); }
 
+.hdr__brand{ display:flex; align-items:center; gap:14px; margin-right:auto; }
+
 .hdr__logo{
-  display:flex; align-items:center; gap:10px; margin-right:auto;
-  padding:.5em 1em .5em .8em;
+  display:flex; align-items:center; justify-content:center;
+  width:2.6em; height:2.6em;
   border:1px solid var(--line-night);
   border-radius:999px;
   transition:border-color var(--t-med);
@@ -395,13 +397,27 @@ button{ font:inherit; color:inherit; }
   background:var(--accent);
   animation:pulse 3.4s ease-in-out infinite;
 }
+
+/* мітка вирівняна в один рядок з навігацією — видно лише на широких екранах */
+.hdr__badge{
+  margin:0;
+  padding:.55em 1.15em;
+  border:1px solid var(--line-night);
+  border-radius:999px;
+  font-size:.78rem;
+  letter-spacing:.03em;
+  color:inherit;
+  opacity:.85;
+  white-space:nowrap;
+  transition:border-color var(--t-med);
+}
+.hdr.is-stuck .hdr__badge{ border-color:var(--line); }
+
+/* на широких екранах мітку показуємо тільки в шапці — щоб не дублювати */
+.hero__eyebrow{ display:none; }
 @keyframes pulse{
   0%,100%{ transform:scale(1);   opacity:1; }
   50%    { transform:scale(1.5); opacity:.55; }
-}
-.hdr__logo-txt{
-  font-family:var(--ff-display);
-  font-size:1.12rem; letter-spacing:.04em;
 }
 
 .hdr__nav{ display:flex; gap:clamp(14px,1.9vw,30px); }
@@ -916,6 +932,8 @@ button{ font:inherit; color:inherit; }
 @media (max-width:1024px){
   .hdr__nav{ display:none; }
   .hdr__cta{ display:none; }
+  .hdr__badge{ display:none; }
+  .hero__eyebrow{ display:inline-block; }
   .burger{ display:block; }
 
   .hero__grid{ grid-template-columns:1fr; gap:clamp(32px,5vw,52px); }
