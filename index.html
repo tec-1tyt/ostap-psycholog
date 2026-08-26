@@ -1,0 +1,443 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Остап — психолог | Індивідуальна терапія онлайн та очно</title>
+<meta name="description" content="Остап — психолог. Індивідуальна терапія: вигорання, тривога, стосунки, самооцінка. Українською та англійською, онлайн і очно.">
+<meta name="theme-color" content="#EDEAE4">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Остап — психолог">
+<meta property="og:description" content="Індивідуальна терапія: вигорання, тривога, стосунки, самооцінка. Онлайн і очно.">
+<meta property="og:image" content="assets/66.jpg">
+<meta property="og:locale" content="uk_UA">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<link rel="preload" as="image" href="assets/2.jpg">
+<link rel="preload" as="image" href="assets/66.jpg">
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+<!-- ============ ambient morph layer (fixed, behind everything) ============ -->
+<div class="ambient" aria-hidden="true">
+  <span class="ambient__blob ambient__blob--a"></span>
+  <span class="ambient__blob ambient__blob--b"></span>
+  <span class="ambient__blob ambient__blob--c"></span>
+  <span class="ambient__grain"></span>
+</div>
+
+<div class="progress" aria-hidden="true"><i class="progress__bar"></i></div>
+
+<a class="skip" href="#hero">Перейти до вмісту</a>
+
+<!-- ============ header ============ -->
+<header class="hdr" id="hdr">
+  <div class="hdr__in">
+    <a class="hdr__logo" href="#hero" aria-label="На початок">
+      <span class="hdr__logo-mark" aria-hidden="true"></span>
+      <span class="hdr__logo-txt">Остап</span>
+    </a>
+
+    <nav class="hdr__nav" aria-label="Основна навігація">
+      <a href="#about"    data-nav="about">Про мене</a>
+      <a href="#work"     data-nav="work">З чим працюю</a>
+      <a href="#approach" data-nav="approach">Підхід</a>
+      <a href="#edu"      data-nav="edu">Освіта</a>
+      <a href="#reviews"  data-nav="reviews">Відгуки</a>
+    </nav>
+
+    <a class="btn btn--sm hdr__cta" href="#contact">Запис</a>
+
+    <button class="burger" id="burger" aria-label="Меню" aria-expanded="false" aria-controls="mobnav">
+      <i></i><i></i>
+    </button>
+  </div>
+</header>
+
+<nav class="mobnav" id="mobnav" aria-label="Мобільна навігація">
+  <a href="#about">Про мене</a>
+  <a href="#work">З чим працюю</a>
+  <a href="#approach">Підхід</a>
+  <a href="#edu">Освіта</a>
+  <a href="#reviews">Відгуки</a>
+  <a href="#contact" class="mobnav__cta">Записатись</a>
+</nav>
+
+<main>
+
+<!-- ============ 1. HERO ============ -->
+<section class="block hero" id="hero" data-morph data-tone="dark">
+  <div class="hero__bg" aria-hidden="true">
+    <img src="assets/2.jpg" alt="" class="hero__bg-img" id="heroBg">
+    <span class="hero__scrim"></span>
+  </div>
+
+  <div class="wrap hero__grid">
+    <div class="hero__copy">
+      <p class="eyebrow" data-rise>Психолог · індивідуальна терапія</p>
+
+      <h1 class="hero__h1" data-split>Я Остап — психолог</h1>
+
+      <div class="hero__note" data-rise data-rise-d="2">
+        <p class="hero__note-q">Що хочу сказати собі сьогодні?</p>
+        <p>Тобі не потрібно мати все розкладене по полицях. Тобі не потрібно бути вже в кінцевій точці Б і розуміти, як це життя правильно жити. Не треба мати все <i>figured out</i>. Цікаво звучить англійською.</p>
+        <p>Перетворювати невизначеність у визначеність — створювати фігуру. Швидко прагнучи створити фігуру (визначеність) з невизначеності, ти втрачаєш можливість знайти щось нове. Я знаю, це складно — залишитись у невідомому. Але це, певно, єдиний спосіб жити по-новому, по-своєму.</p>
+      </div>
+
+      <div class="hero__actions" data-rise data-rise-d="3">
+        <a class="btn" href="#contact">Записатись на сесію</a>
+        <a class="btn btn--ghost" href="#about">Про мене</a>
+      </div>
+    </div>
+
+    <figure class="hero__portrait" data-rise data-rise-d="2">
+      <span class="morph-frame">
+        <img src="assets/66.jpg" alt="Остап — психолог" width="1080" height="1350">
+      </span>
+    </figure>
+  </div>
+
+  <a class="hero__scroll" href="#stats" aria-label="Гортати далі">
+    <span></span>
+  </a>
+</section>
+
+<!-- ============ 2. STATS ============ -->
+<section class="block stats" id="stats" data-morph data-tone="light">
+  <div class="wrap stats__grid">
+    <div class="stat" data-rise>
+      <b class="stat__num" data-count="1232">0</b>
+      <span class="stat__lbl">сесій проведено</span>
+    </div>
+    <div class="stat" data-rise data-rise-d="1">
+      <b class="stat__num" data-count="3">0</b>
+      <span class="stat__lbl">роки практики</span>
+    </div>
+    <div class="stat" data-rise data-rise-d="2">
+      <b class="stat__num" data-count="1600">0</b>
+      <span class="stat__lbl">грн / сесія</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 3. ABOUT ============ -->
+<section class="block about" id="about" data-morph data-tone="light">
+  <div class="wrap about__grid">
+    <figure class="about__fig" data-rise>
+      <span class="morph-frame morph-frame--soft">
+        <img src="assets/88.jpg" alt="Остап у студії" loading="lazy" decoding="async" width="1920" height="1080">
+      </span>
+    </figure>
+
+    <div class="about__copy">
+      <p class="eyebrow" data-rise>01 — Про мене</p>
+      <h2 class="h2" data-split>Привіт! Мене звати Остап</h2>
+
+      <div class="prose" data-rise data-rise-d="2">
+        <p>Я психолог та гештальт-терапевт у навчанні (4-ий рік навчання, Київський Гештальт Університет). Вже 3 роки веду терапевтичну практику. У роботі використовую техніки гештальт-терапії, когнітивно-поведінкової терапії та знання з нейропсихології.</p>
+        <p>До мене зазвичай звертаються із запитами: депресія, тривога, стрес, панічні атаки, труднощі у стосунках, самотність, особисті кордони, вигорання, прийняття складних рішень, пошук себе, брак мотивації, сепарація з батьками.</p>
+        <p>Про себе. Я одружений, маю 9-річного сина. До психології 10 років працював стратегом у маркетингу та рекламі. Переїхав з Києва у маленьке гірське село на Закарпатті, де зараз і живу з сім&rsquo;єю. Пишу вірші, філософствую, фотографую, граю на музичних інструментах. Досліджую роботу з тілом і медитацію.</p>
+        <p>Запрошую вас у терапію <i>&#10084;</i></p>
+      </div>
+
+      <ul class="tags" data-rise data-rise-d="3">
+        <li>Особиста терапія</li>
+        <li>укр&nbsp;/&nbsp;eng</li>
+        <li>лише онлайн</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 4. WORK WITH ============ -->
+<section class="block work" id="work" data-morph data-tone="mid">
+  <div class="wrap">
+    <header class="sec-head">
+      <p class="eyebrow" data-rise>02 — Запити</p>
+      <h2 class="h2" data-split>З чим працюю</h2>
+    </header>
+
+    <div class="work__grid">
+      <div class="work__col work__col--wide" data-rise>
+        <h3 class="work__h3"><span class="dot dot--yes" aria-hidden="true"></span>Працюю з</h3>
+        <ul class="tags tags--work">
+          <li>втома</li>
+          <li>депресивні стани</li>
+          <li>дратівливість</li>
+          <li>тривожні стани</li>
+          <li>панічні атаки</li>
+          <li>самооцінка та самоцінність</li>
+          <li>самотність</li>
+          <li>самовизначення та самоідентифікація</li>
+          <li>романтичні стосунки</li>
+          <li>сімейні стосунки</li>
+          <li>народження дитини</li>
+          <li>емоційне вигорання</li>
+          <li>прокрастинація</li>
+          <li>інтимність та сексуальність</li>
+          <li>ставлення до грошей</li>
+          <li>адаптація, еміграція</li>
+          <li>втрата та горе</li>
+          <li>кризи і травми</li>
+          <li>ПТСР</li>
+          <li>психосоматика</li>
+          <li>ставлення до їжі</li>
+          <li>співзалежність</li>
+          <li>нав&rsquo;язливі думки та ритуали</li>
+          <li>аб&rsquo;юз, емоційне насилля</li>
+        </ul>
+      </div>
+
+      <div class="work__col" data-rise data-rise-d="1">
+        <h3 class="work__h3"><span class="dot dot--no" aria-hidden="true"></span>Не працюю з</h3>
+        <ul class="lst lst--no">
+          <li>хімічні залежності</li>
+          <li>розлади особистості</li>
+          <li>психопатологія</li>
+          <li>спроби самогубства</li>
+        </ul>
+        <p class="work__note">Веду лише індивідуальну терапію — без парного чи сімейного формату.</p>
+      </div>
+
+      <aside class="work__aside" data-rise data-rise-d="2">
+        <div class="card">
+          <b>ЛГБТ+ friendly</b>
+          <p>Простір без пояснень і без необхідності виправдовуватись.</p>
+        </div>
+        <div class="card">
+          <b>Українська&nbsp;/&nbsp;English</b>
+          <p>Сесії проходять тією мовою, у якій тобі легше говорити про складне.</p>
+        </div>
+        <div class="card">
+          <b>Лише онлайн</b>
+          <p>З будь-якої точки світу, у зручний для тебе час.</p>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 5. APPROACH (dark) ============ -->
+<section class="block approach" id="approach" data-morph data-tone="dark">
+  <div class="wrap approach__grid">
+    <div class="approach__copy">
+      <p class="eyebrow" data-rise>03 — Метод</p>
+      <h2 class="h2" data-split>Підхід</h2>
+
+      <div class="prose" data-rise data-rise-d="2">
+        <p>Основна мета гештальт-терапії — розширити усвідомлення. Я допомагаю клієнту усвідомити, як його минулий досвід впливає на те, як він проживає життя зараз і планує своє майбутнє. Як тільки приходить усвідомлення — з&rsquo;являється можливість для змін.</p>
+        <p>Гештальт-терапія покращує контакт зі своїми почуттями, емоціями, зі своїм тілом. Основна частина сеансів проходить у форматі бесіди та дослідженні тілесних відчуттів. По мірі необхідності і з вашої згоди я пропоную вправи та експерименти.</p>
+        <p>Чого точно не буде на наших сесіях — осудливого, знецінюючого, соромлячого, нав&rsquo;язливого ставлення до вас.</p>
+      </div>
+
+      <blockquote class="pull" data-rise data-rise-d="3">
+        Я — людина. І все людське мені не чуже.
+      </blockquote>
+    </div>
+
+    <figure class="approach__fig" data-rise data-rise-d="1">
+      <span class="morph-frame">
+        <img src="assets/99.jpg" alt="Остап сидить на лаві" loading="lazy" decoding="async" width="1080" height="1350">
+      </span>
+    </figure>
+  </div>
+</section>
+
+<!-- ============ 6. EDUCATION ============ -->
+<section class="block edu" id="edu" data-morph data-tone="light">
+  <div class="wrap">
+    <header class="sec-head sec-head--row">
+      <div>
+        <p class="eyebrow" data-rise>04 — Кваліфікація</p>
+        <h2 class="h2" data-split>Освіта</h2>
+      </div>
+      <div class="rail-nav" data-rise data-rise-d="2">
+        <button class="rail-btn" data-rail="edu" data-dir="-1" aria-label="Назад">&#8592;</button>
+        <button class="rail-btn" data-rail="edu" data-dir="1"  aria-label="Вперед">&#8594;</button>
+      </div>
+    </header>
+
+    <div class="rail" id="rail-edu" data-rise data-rise-d="2">
+      <article class="dip">
+        <span class="dip__img"><img src="assets/certs/diploma-1.jpg" alt="Диплом магістра, КНУ ім. Тараса Шевченка" loading="lazy" decoding="async"></span>
+        <b>Диплом магістра з відзнакою</b>
+        <span class="dip__meta">КНУ ім. Тараса Шевченка, «Клінічна психологія з основами психотерапії» · 2024</span>
+      </article>
+      <article class="dip">
+        <span class="dip__img"><img src="assets/certs/diploma-2.jpg" alt="Введення у гештальт-терапію" loading="lazy" decoding="async"></span>
+        <b>Введення у гештальт-терапію, I ступінь</b>
+        <span class="dip__meta">Київський гештальт університет, 150 год · 2022</span>
+      </article>
+      <article class="dip">
+        <span class="dip__img is-empty" data-slot="У процесі"></span>
+        <b>Гештальт-терапевти і консультанти, II ступінь</b>
+        <span class="dip__meta">Київський гештальт університет, 288 год · у процесі навчання</span>
+      </article>
+      <article class="dip">
+        <span class="dip__img"><img src="assets/certs/diploma-3.jpg" alt="Гештальт-підхід у роботі з панічними атаками" loading="lazy" decoding="async"></span>
+        <b>Гештальт-підхід у роботі з панічними атаками</b>
+        <span class="dip__meta">КГУ, 16 год · 2023</span>
+      </article>
+      <article class="dip">
+        <span class="dip__img"><img src="assets/certs/diploma-5.jpg" alt="Гештальт-підхід у роботі з депресивним досвідом" loading="lazy" decoding="async"></span>
+        <b>Гештальт-підхід у роботі з депресивним досвідом клієнта</b>
+        <span class="dip__meta">КГУ, 16 год · 2023</span>
+      </article>
+      <article class="dip">
+        <span class="dip__img"><img src="assets/certs/diploma-6.jpg" alt="Гештальт-підхід у роботі з темами співзалежності" loading="lazy" decoding="async"></span>
+        <b>Гештальт-підхід у роботі з темами співзалежності</b>
+        <span class="dip__meta">КГУ, 16 год · 2023</span>
+      </article>
+      <article class="dip">
+        <span class="dip__img"><img src="assets/certs/diploma-4.jpg" alt="Тіло як динаміка руху, Руела Франк" loading="lazy" decoding="async"></span>
+        <b>«Тіло як динаміка руху» з Руелою Франк</b>
+        <span class="dip__meta">КГУ, міжнародний семінар, 8 год · 2023</span>
+      </article>
+      <article class="dip">
+        <span class="dip__img"><img src="assets/certs/diploma-7.jpg" alt="Ключовий спікер конференції" loading="lazy" decoding="async"></span>
+        <b>Ключовий спікер конференції</b>
+        <span class="dip__meta">«Актуальні проблеми клінічної психології, психотерапії та психологічного консультування», КНУ · 2023</span>
+      </article>
+      <article class="dip">
+        <span class="dip__img"><img src="assets/certs/diploma-8.jpg" alt="Конференція «Мозок, культура, особистість»" loading="lazy" decoding="async"></span>
+        <b>«Мозок, культура, особистість»</b>
+        <span class="dip__meta">Науково-практична конференція з міжнародною участю, КНУ, 15 год · 2023</span>
+      </article>
+      <article class="dip">
+        <span class="dip__img"><img src="assets/certs/diploma-9.jpg" alt="Членство в Національній психологічній асоціації" loading="lazy" decoding="async"></span>
+        <b>Член Національної психологічної асоціації</b>
+        <span class="dip__meta">Посвідчення про членство · 2024</span>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 7. REVIEWS ============ -->
+<section class="block reviews" id="reviews" data-morph data-tone="mid">
+  <div class="wrap">
+    <header class="sec-head sec-head--row">
+      <div>
+        <p class="eyebrow" data-rise>05 — Досвід клієнтів</p>
+        <h2 class="h2" data-split>Відгуки</h2>
+      </div>
+      <div class="rail-nav" data-rise data-rise-d="2">
+        <button class="rail-btn" data-rail="rev" data-dir="-1" aria-label="Назад">&#8592;</button>
+        <button class="rail-btn" data-rail="rev" data-dir="1"  aria-label="Вперед">&#8594;</button>
+      </div>
+    </header>
+
+    <div class="rail" id="rail-rev" data-rise data-rise-d="2">
+      <blockquote class="rev">
+        <p>Сесії Остапом не поставили мене на шлях успішного успіху і не навчили 15 готовим правилам високоефективних людей. Натомість кожна наша зустріч проходила в атмосфері повного прийняття, і це дало мені можливість поглянути на речі під різними кутами.</p>
+        <footer><b>Ярослава</b><span>Тривожні стани, втрата та горе</span></footer>
+      </blockquote>
+      <blockquote class="rev">
+        <p>Остап — третій психолог, з яким я працюю, і от після перших 10 сесій я щасливий відчувати, що це «мій» терапевт. Словом, високого рівня спеціаліст та просто класна людина. Всім Остап!</p>
+        <footer><b>Євгеній</b><span>Тривожні стани, аб&rsquo;юз</span></footer>
+      </blockquote>
+      <blockquote class="rev">
+        <p>Остап це дуже крутий тіп. Він чує, включається у емоційний вайб та з ним почуваєшся безпечно. 10 «а що відбувається на рівні тіла» із 10.</p>
+        <footer><b>Станіслав</b><span>Депресивні, тривожні стани</span></footer>
+      </blockquote>
+      <blockquote class="rev">
+        <p>З Остапом я відчуваю себе в безпеці, я відчуваю що мене почули і зрозуміли — це дає змогу відкритися. Я стала краще розуміти себе, свої емоції та стани. Кожна сесія як крок до емоційної стабільності.</p>
+        <footer><b>Олена</b><span>Стосунки, емоційне вигорання</span></footer>
+      </blockquote>
+      <blockquote class="rev">
+        <p>Приємний і легкий в спілкуванні спеціаліст, який ділиться своїм досвідом. За короткий час зміг допомогти знайти свої точки опори і побудувати подальший шлях.</p>
+        <footer><b>Андрій</b><span>Емоційне вигорання, прокрастинація</span></footer>
+      </blockquote>
+      <blockquote class="rev">
+        <p>Після кожної сесії мені ставало набагато легше і вільніше сприймати дійсність. Коментарі Остапа часто досить влучні, що дозволяють глянути на ситуацію під новим кутом.</p>
+        <footer><b>Павло</b><span>Самооцінка, прокрастинація</span></footer>
+      </blockquote>
+      <blockquote class="rev">
+        <p>Остап дуже класний спеціаліст. Складається враження, що він розуміє тебе з пів-слова. Його поради ґрунтуються на великій доказовій базі та власній терапії. Дуже рекомендую!</p>
+        <footer><b>Олексій</b><span>Самооцінка, вигорання</span></footer>
+      </blockquote>
+      <blockquote class="rev">
+        <p>Його професіоналізм, уважність та глибоке розуміння людської психології допомогли мені віднайти внутрішню рівновагу. Кожна сесія була наповнена довірою та підтримкою.</p>
+        <footer><b>Богдан</b><span>Самооцінка, самовизначення</span></footer>
+      </blockquote>
+      <blockquote class="rev">
+        <p>Вже з першої сесії я відчула атмосферу прийняття та підтримки, яка сприяє відкритості. Остап уважно підходить до деталей і вміє підсвітити те, що я могла не помічати раніше.</p>
+        <footer><b>Таня</b><span>Депресивні стани, самотність</span></footer>
+      </blockquote>
+      <blockquote class="rev">
+        <p>Приємна людина, якій не страшно відкритись — з перших хвилин було зручно розмовляти наче з давно знайомим товаришем. Раджу тим, хто боїться відкриватись людям.</p>
+        <footer><b>Владислав</b><span>Сімейні стосунки, інтимність</span></footer>
+      </blockquote>
+    </div>
+
+    <p class="reviews__more" data-rise data-rise-d="3">
+      Ще 12 відгуків — на профілі
+      <a href="https://www.rozmova.me/therapist/ostap-buryak" target="_blank" rel="noopener">rozmova.me</a>
+    </p>
+  </div>
+</section>
+
+<!-- ============ 8. CONTACT ============ -->
+<section class="block contact" id="contact" data-morph data-tone="dark">
+  <div class="wrap contact__grid">
+
+    <div class="contact__side">
+      <figure class="contact__fig" data-rise>
+        <span class="morph-frame morph-frame--round">
+          <img src="assets/55_3.jpg" alt="Остап" loading="lazy" decoding="async" width="1080" height="1350">
+        </span>
+      </figure>
+
+      <p class="eyebrow" data-rise data-rise-d="1">06 — Контакти</p>
+      <h2 class="h2" data-split>Записатись</h2>
+      <p class="contact__lead" data-rise data-rise-d="2">
+        Напиши кілька речень про те, що зараз відбувається. Я відповім упродовж доби і запропоную час для першої зустрічі.
+      </p>
+
+      <ul class="social" data-rise data-rise-d="3">
+        <li><a href="#" data-social="instagram">Instagram</a></li>
+        <li><a href="#" data-social="telegram">Telegram</a></li>
+        <li><a href="#" data-social="email">Email</a></li>
+      </ul>
+    </div>
+
+    <form class="form" id="bookForm" novalidate data-rise data-rise-d="2">
+      <div class="field">
+        <label for="f-name">Ім&rsquo;я</label>
+        <input id="f-name" name="name" type="text" autocomplete="given-name" required placeholder="Як до тебе звертатись">
+      </div>
+
+      <div class="field">
+        <label for="f-contact">Контакт</label>
+        <input id="f-contact" name="contact" type="text" autocomplete="email" required placeholder="Email або @telegram">
+      </div>
+
+      <div class="field">
+        <label for="f-msg">Запит</label>
+        <textarea id="f-msg" name="message" rows="5" required placeholder="Кілька речень про те, з чим хочеться попрацювати"></textarea>
+      </div>
+
+      <button class="btn btn--wide" type="submit">Надіслати</button>
+      <p class="form__status" id="formStatus" role="status" aria-live="polite"></p>
+      <p class="form__fine">Усе написане залишається конфіденційним.</p>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap foot__in">
+    <span>&copy; <span id="yr">2026</span> Остап — психолог</span>
+    <a href="#hero">Наверх &#8593;</a>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
