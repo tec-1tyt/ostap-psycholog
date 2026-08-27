@@ -32,6 +32,7 @@
   var Morph = (function () {
     var items = [], docH = 0, vh = 0, ticking = false;
     var progressBar = $('.progress__bar');
+    var heroBg = $('#heroBg');
 
     function measure() {
       vh = window.innerHeight;
@@ -61,6 +62,11 @@
 
       if (progressBar && docH > 0) {
         progressBar.style.setProperty('--sp', clamp(y / docH, 0, 1));
+      }
+
+      // мʼякий паралакс фону героя
+      if (heroBg && y < vh * 1.2) {
+        heroBg.style.setProperty('--par', (y * 0.16).toFixed(1) + 'px');
       }
 
       ticking = false;
