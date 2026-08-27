@@ -549,6 +549,7 @@ button{ font:inherit; color:inherit; }
 
 .hero__portrait{ margin:0; position:relative; }
 .hero__portrait .morph-frame{ aspect-ratio:4/5; position:relative; z-index:1; }
+.hero__portrait .morph-frame img{ object-position:47% 38%; }
 /* тепле сяйво з фото «розтікається» на весь героєвий екран */
 .hero__portrait::before{
   content:"";
