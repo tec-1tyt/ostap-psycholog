@@ -826,18 +826,6 @@ button{ font:inherit; color:inherit; }
 .rev footer b{ font-size:.9rem; font-weight:500; }
 .rev footer span{ font-size:.79rem; color:var(--ink-faint); }
 
-.reviews__more{
-  margin:2.2em 0 0;
-  font-size:.86rem;
-  color:var(--ink-faint);
-}
-.reviews__more a{
-  color:var(--accent);
-  border-bottom:1px solid currentColor;
-  transition:opacity var(--t-fast);
-}
-.reviews__more a:hover{ opacity:.7; }
-
 /* --- 8. CONTACT --- */
 .contact__grid{
   display:grid;
