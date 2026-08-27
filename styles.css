@@ -500,16 +500,16 @@ button{ font:inherit; color:inherit; }
 .hero__bg{ position:absolute; inset:0; z-index:-1; overflow:hidden; background:#bcb8b7; }
 .hero__bg-img{
   width:100%; height:100%;
-  object-fit:cover; object-position:95% 6%;
-  transform-origin:95% 6%;
-  transform:scale(4) translate3d(0, var(--par, 0px), 0);
+  object-fit:cover; object-position:8% 4%;
+  transform-origin:8% 4%;
+  transform:scale(3.4) translate3d(0, var(--par, 0px), 0);
   will-change:transform;
 }
 .hero__scrim{
   position:absolute; inset:0;
   background:
-    linear-gradient(100deg, rgba(12,11,9,.72) 0%, rgba(12,11,9,.5) 30%, rgba(12,11,9,.15) 52%, rgba(12,11,9,0) 64%),
-    linear-gradient(to top, rgba(12,11,9,.28) 0%, rgba(12,11,9,0) 40%);
+    linear-gradient(100deg, rgba(12,11,9,.4) 0%, rgba(12,11,9,.3) 35%, rgba(12,11,9,.2) 60%, rgba(12,11,9,.24) 100%),
+    linear-gradient(to top, rgba(12,11,9,.2) 0%, rgba(12,11,9,0) 35%);
 }
 
 .hero__grid{
@@ -1017,7 +1017,7 @@ button{ font:inherit; color:inherit; }
   .morph-frame > img{ transform:none !important; }
   [data-rise]{ --r:1 !important; opacity:1 !important; transform:none !important; }
   .line-mask > span{ transform:none !important; }
-  .hero__bg-img{ transform:scale(4) !important; }
+  .hero__bg-img{ transform:scale(3.4) !important; }
   .ambient__grain{ display:none; }
 }
 
