@@ -25,50 +25,26 @@
   var easeOut = function (t) { return 1 - Math.pow(1 - t, 3); };
 
   /* ---------------------------------------------------------
-     1. МОРФ МІЖ БЛОКАМИ
-     Кожній секції пишемо --p (0…1) залежно від її позиції
-     у вʼюпорті. Уся геометрія морфу рахується в CSS.
+     1. СМУГА ПРОГРЕСУ ЧИТАННЯ
+     Ефект появи/розгортання блоків при скролі прибрано —
+     секції тепер завжди в кінцевому вигляді (--p:1 за замовчуванням
+     з @property у styles.css). Лишається лише індикатор прогресу.
      --------------------------------------------------------- */
   var Morph = (function () {
-    var items = [], docH = 0, vh = 0, ticking = false;
+    var docH = 0, vh = 0, ticking = false;
     var progressBar = $('.progress__bar');
-    var heroBg = $('#heroBg');
 
     function measure() {
       vh = window.innerHeight;
       docH = document.documentElement.scrollHeight - vh;
-      items = $$('[data-morph]').map(function (el) {
-        return { el: el, top: el.offsetTop, h: el.offsetHeight, last: -1 };
-      });
       update();
     }
 
     function update() {
       var y = window.scrollY || window.pageYOffset;
-
-      for (var i = 0; i < items.length; i++) {
-        var it = items[i];
-        var relTop = it.top - y;                    // позиція верху секції у вʼюпорті
-
-        // 0 коли верх на нижній межі екрана → 1 коли піднявся на 55% висоти
-        var raw = clamp((vh - relTop) / (vh * 0.55), 0, 1);
-        var p = Math.round(easeOut(raw) * 1000) / 1000;
-
-        if (p !== it.last) {
-          it.el.style.setProperty('--p', p);
-          it.last = p;
-        }
-      }
-
       if (progressBar && docH > 0) {
         progressBar.style.setProperty('--sp', clamp(y / docH, 0, 1));
       }
-
-      // мʼякий паралакс фону героя
-      if (heroBg && y < vh * 1.2) {
-        heroBg.style.setProperty('--par', (y * 0.16).toFixed(1) + 'px');
-      }
-
       ticking = false;
     }
 
@@ -78,10 +54,6 @@
 
     return {
       init: function () {
-        if (reduced) {
-          $$('[data-morph]').forEach(function (el) { el.style.setProperty('--p', 1); });
-          return;
-        }
         measure();
         window.addEventListener('scroll', onScroll, { passive: true });
         window.addEventListener('resize', measure);
@@ -388,11 +360,6 @@
   /* ---------------------------------------------------------
      9. ДРІБНИЦІ
      --------------------------------------------------------- */
-  function initMisc() {
-    var yr = $('#yr');
-    if (yr) yr.textContent = new Date().getFullYear();
-  }
-
   /* ---------------------------------------------------------
      СТАРТ
      --------------------------------------------------------- */
@@ -406,7 +373,6 @@
     initRails();
     initContacts();
     initForm();
-    initMisc();
 
     // після завантаження шрифтів рядки заголовків треба перерахувати
     if (document.fonts && document.fonts.ready && !reduced) {

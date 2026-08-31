@@ -17,7 +17,6 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-<link rel="preload" as="image" href="assets/66.jpg">
 <link rel="preload" as="image" href="assets/1.jpg">
 <link rel="stylesheet" href="styles.css">
 </head>
@@ -75,11 +74,6 @@
 
 <!-- ============ 1. HERO ============ -->
 <section class="block hero" id="hero" data-morph data-tone="dark">
-  <div class="hero__bg" aria-hidden="true">
-    <img src="assets/66.jpg" alt="" class="hero__bg-img" id="heroBg">
-    <span class="hero__scrim"></span>
-  </div>
-
   <div class="wrap hero__grid">
     <div class="hero__copy">
       <p class="eyebrow eyebrow--pill hero__eyebrow" data-rise>Психолог · індивідуальна терапія</p>
@@ -109,10 +103,6 @@
       </span>
     </figure>
   </div>
-
-  <a class="hero__scroll" href="#stats" aria-label="Гортати далі">
-    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 4v15M12 19l-6-6M12 19l6-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-  </a>
 </section>
 
 <!-- ============ 2. STATS ============ -->
@@ -135,13 +125,13 @@
 
 <!-- ============ 3. ABOUT ============ -->
 <section class="block about" id="about" data-morph data-tone="light">
-  <figure class="about__fig" data-rise>
-    <span class="morph-frame morph-frame--soft">
-      <img src="assets/88.jpg" alt="Остап у студії" loading="lazy" decoding="async" width="1920" height="1080">
-    </span>
-  </figure>
-
   <div class="wrap about__grid">
+    <figure class="about__fig" data-rise>
+      <span class="morph-frame morph-frame--soft">
+        <img src="assets/2.jpg" alt="Остап" loading="lazy" decoding="async" width="1920" height="1080">
+      </span>
+    </figure>
+
     <div class="about__copy">
       <p class="eyebrow" data-rise>01 — Про мене</p>
       <h2 class="h2" data-split>Привіт! Мене звати Остап</h2>
@@ -423,11 +413,6 @@
       <p class="form__status" id="formStatus" role="status" aria-live="polite"></p>
       <p class="form__fine">Усе написане залишається конфіденційним.</p>
     </form>
-  </div>
-
-  <div class="wrap contact__foot">
-    <span>&copy; <span id="yr">2026</span> Остап — психолог</span>
-    <a href="#hero">Наверх &#8593;</a>
   </div>
 </section>
 
