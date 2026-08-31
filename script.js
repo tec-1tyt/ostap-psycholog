@@ -22,7 +22,6 @@
   var $  = function (s, c) { return (c || document).querySelector(s); };
   var $$ = function (s, c) { return Array.prototype.slice.call((c || document).querySelectorAll(s)); };
   var clamp = function (v, a, b) { return v < a ? a : v > b ? b : v; };
-  var easeOut = function (t) { return 1 - Math.pow(1 - t, 3); };
 
   /* ---------------------------------------------------------
      1. СМУГА ПРОГРЕСУ ЧИТАННЯ
@@ -199,35 +198,13 @@
   }
 
   /* ---------------------------------------------------------
-     6. ЛІЧИЛЬНИКИ
+     6. ЧИСЛА В СТАТИСТИЦІ — без анімації лічильника, одразу готове значення
      --------------------------------------------------------- */
   function initCounters() {
-    var nums = $$('[data-count]');
-    if (!nums.length) return;
-
-    function run(el) {
+    $$('[data-count]').forEach(function (el) {
       var target = parseInt(el.getAttribute('data-count'), 10) || 0;
-      if (reduced) { el.textContent = target.toLocaleString('uk-UA'); return; }
-
-      var dur = 1500, t0 = null;
-      function step(ts) {
-        if (t0 === null) t0 = ts;
-        var k = clamp((ts - t0) / dur, 0, 1);
-        el.textContent = Math.round(easeOut(k) * target).toLocaleString('uk-UA');
-        if (k < 1) requestAnimationFrame(step);
-      }
-      requestAnimationFrame(step);
-    }
-
-    if (!('IntersectionObserver' in window)) { nums.forEach(run); return; }
-
-    var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) {
-        if (e.isIntersecting) { run(e.target); io.unobserve(e.target); }
-      });
-    }, { threshold: 0.6 });
-
-    nums.forEach(function (n) { io.observe(n); });
+      el.textContent = target.toLocaleString('uk-UA');
+    });
   }
 
   /* ---------------------------------------------------------
