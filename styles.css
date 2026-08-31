@@ -842,7 +842,6 @@ button{ font:inherit; color:inherit; }
   color:rgba(168,161,153,.7);
 }
 
-/* --- FOOTER --- */
 /* ---------- 6. АДАПТИВ ---------- */
 @media (max-width:1024px){
   .hdr__nav{ display:none; }
