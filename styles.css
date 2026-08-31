@@ -488,6 +488,14 @@ button{ font:inherit; color:inherit; }
 /* ---------- 5. БЛОКИ ---------- */
 
 /* --- 1. HERO --- */
+/* перший екран має заповнювати всю висоту вʼюпорта, щоб знизу
+   не проглядав наступний блок до того, як людина проскролить */
+.hero{
+  min-height:100svh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
 .hero__copy .eyebrow{ margin-bottom:.7em; }
 
 .hero__grid{
@@ -523,7 +531,7 @@ button{ font:inherit; color:inherit; }
   color:var(--on-night) !important;
   margin-bottom:.5em !important;
 }
-.hero__actions{ display:flex; flex-wrap:wrap; gap:12px; margin-top:1.5em; }
+.hero__actions{ display:flex; flex-wrap:wrap; gap:12px; margin-top:2.4em; }
 
 .hero__portrait{ margin:0; }
 .hero__portrait .morph-frame{ aspect-ratio:4/5; }
@@ -568,7 +576,7 @@ button{ font:inherit; color:inherit; }
 }
 .about__fig{ margin:0; }
 .about__fig .morph-frame{ aspect-ratio:4/5; }
-.about__fig img{ object-position:68% 40%; }
+.about__fig img{ object-position:50% 22%; }
 
 /* --- 4. WORK --- */
 .work__grid{
@@ -852,8 +860,6 @@ button{ font:inherit; color:inherit; }
   .about__grid{ grid-template-columns:1fr; }
   .approach__fig{ order:-1; max-width:min(70vw,420px); }
   .about__fig{ order:-1; width:100%; max-width:min(70vw,420px); margin-inline:auto; }
-  .about__fig .morph-frame{ aspect-ratio:16/10; }
-  .about__fig img{ object-position:65% 35%; }
 
   .work__grid{ grid-template-columns:1fr 1fr; }
 }
