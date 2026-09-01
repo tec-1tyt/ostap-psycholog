@@ -538,6 +538,15 @@ button{ font:inherit; color:inherit; }
 }
 .hero__actions{ display:flex; flex-wrap:wrap; gap:12px; margin-top:2.4em; }
 
+.hero__fine{
+  max-width:46ch;
+  margin-top:1em;
+  font-size:.78rem;
+  line-height:1.5;
+  color:var(--on-night-soft);
+  opacity:.72;
+}
+
 .hero__portrait{ margin:0; }
 .hero__portrait .morph-frame{ aspect-ratio:4/5; }
 .hero__portrait .morph-frame img{ object-position:47% 38%; }
