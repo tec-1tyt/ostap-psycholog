@@ -56,7 +56,9 @@ html{
 
 body{
   margin:0;
-  background:var(--bg);
+  /* темний, як герой і контакти — щоб pull-to-refresh/overscroll
+     на iOS не показував світлий «просвіт» над/під сторінкою */
+  background:var(--night);
   color:var(--ink);
   font-family:var(--ff-text);
   font-size:clamp(15px,1.02vw,17px);
@@ -845,8 +847,8 @@ button{ font:inherit; color:inherit; }
 /* ---------- 6. АДАПТИВ ---------- */
 @media (max-width:1024px){
   .hdr__nav{ display:none; }
-  .hdr__cta{ display:none; }
   .hdr__badge{ display:none; }
+  .hdr__cta{ padding:.55em 1.1em; font-size:.78rem; }
   .hero__eyebrow{ display:inline-block; }
   .burger{ display:block; }
 
@@ -858,7 +860,7 @@ button{ font:inherit; color:inherit; }
   .contact__grid,
   .about__grid{ grid-template-columns:1fr; }
   .approach__fig{ order:-1; max-width:min(70vw,420px); }
-  .about__fig{ order:-1; width:100%; max-width:min(70vw,420px); margin-inline:auto; }
+  .about__fig{ order:-1; width:100%; max-width:min(70vw,420px); margin:0; }
 
   .work__grid{ grid-template-columns:1fr 1fr; }
 }
@@ -880,9 +882,11 @@ button{ font:inherit; color:inherit; }
   .hero__actions{ margin-bottom:1.6em; }
   .hero__portrait{ width:min(46vw,210px); }
 
-  .stats__grid{ grid-template-columns:1fr; gap:26px; }
+  .stats{ padding-block:32px; }
+  .stats__grid{ grid-template-columns:1fr; gap:22px; }
   .work__grid{ grid-template-columns:1fr; }
   .work__aside{ flex-direction:column; }
+  .card{ flex:none; }
   .hero__actions .btn{ flex:1 1 auto; }
   .rail{ -webkit-mask-image:none; mask-image:none; }
 }
