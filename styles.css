@@ -695,6 +695,10 @@ button{ font:inherit; color:inherit; }
   overflow-x:auto;
   scroll-snap-type:x mandatory;
   scroll-behavior:smooth;
+  /* overflow-x:auto змушує браузер рахувати overflow-y як auto теж —
+     без цього паддінгу ховер-підйом карток (translateY + scale) зверху обрізається */
+  padding-top:16px;
+  margin-top:-16px;
   padding-bottom:8px;
   scrollbar-width:none;
   -ms-overflow-style:none;
@@ -744,6 +748,14 @@ button{ font:inherit; color:inherit; }
 .dip b{ font-size:.95rem; font-weight:500; }
 .dip__meta{ font-size:.82rem; color:var(--ink-faint); }
 
+#rail-rev{
+  display:grid;
+  grid-auto-flow:column;
+  grid-template-rows:repeat(2,max-content);
+  grid-auto-columns:clamp(268px,31vw,380px);
+  align-items:start;
+}
+
 .rev{
   width:clamp(268px,31vw,380px);
   margin:0;
@@ -761,6 +773,10 @@ button{ font:inherit; color:inherit; }
   font-size:1.04rem;
   line-height:1.56;
   color:var(--ink-soft);
+  display:-webkit-box;
+  -webkit-box-orient:vertical;
+  -webkit-line-clamp:7;
+  overflow:hidden;
 }
 .rev p::before{ content:"«"; color:var(--accent); margin-right:.15em; }
 .rev p::after{ content:"»"; color:var(--accent); margin-left:.15em; }
