@@ -765,7 +765,7 @@ button{ font:inherit; color:inherit; }
   grid-auto-flow:column;
   grid-template-rows:repeat(2,max-content);
   grid-auto-columns:clamp(268px,31vw,380px);
-  align-items:start;
+  align-items:stretch;
 }
 
 .rev{
@@ -918,7 +918,10 @@ button{ font:inherit; color:inherit; }
               scale(calc(.992 + var(--p) * .008));
   }
 
-  .hero__actions{ margin-bottom:1.6em; }
+  /* колонкою і фіксованою шириною кнопок — щоб перенос рядків не залежав
+     від виміряної ширини тексту (яка змінюється після довантаження шрифту
+     й раніше «зрізала» анімацію появи стрибком) */
+  .hero__actions{ flex-direction:column; margin-bottom:1.6em; }
   .hero__portrait{ width:min(46vw,210px); margin-bottom:14px; }
 
   .stats{ padding-block:32px; }
@@ -926,7 +929,7 @@ button{ font:inherit; color:inherit; }
   .work__grid{ grid-template-columns:1fr; }
   .work__aside{ flex-direction:column; }
   .card{ flex:none; }
-  .hero__actions .btn{ flex:1 1 auto; }
+  .hero__actions .btn{ width:100%; }
   .rail{ -webkit-mask-image:none; mask-image:none; }
 }
 
