@@ -366,11 +366,15 @@ button{ font:inherit; color:inherit; }
 /* ---------- HEADER ---------- */
 .hdr{
   position:fixed; top:0; left:0; right:0; z-index:100;
+  background:transparent;
+  border-bottom:1px solid transparent;
+  transition:background var(--t-med), border-color var(--t-med), padding var(--t-med);
+}
+.hdr.is-stuck{
   background:rgba(237,234,228,.92);
   backdrop-filter:blur(14px) saturate(1.4);
   -webkit-backdrop-filter:blur(14px) saturate(1.4);
-  border-bottom:1px solid var(--line-soft);
-  transition:padding var(--t-med);
+  border-bottom-color:var(--line-soft);
 }
 .hdr__in{
   max-width:var(--wrap); margin-inline:auto;
@@ -380,14 +384,20 @@ button{ font:inherit; color:inherit; }
 }
 .hdr.is-stuck .hdr__in{ padding-block:12px; }
 
+/* поки шапка над темним героєм — світлий текст */
+.hdr:not(.is-stuck){ color:var(--on-night); }
+.hdr:not(.is-stuck) .btn{ background:var(--on-night); color:var(--night); border-color:var(--on-night); }
+
 .hdr__brand{ display:flex; align-items:center; gap:14px; margin-right:auto; }
 
 .hdr__logo{
   display:flex; align-items:center; justify-content:center;
   width:2.6em; height:2.6em;
-  border:1px solid var(--line);
+  border:1px solid var(--line-night);
   border-radius:999px;
+  transition:border-color var(--t-med);
 }
+.hdr.is-stuck .hdr__logo{ border-color:var(--line); }
 .hdr__logo-mark{
   width:9px; height:9px; border-radius:50%;
   background:var(--accent);
@@ -398,14 +408,16 @@ button{ font:inherit; color:inherit; }
 .hdr__badge{
   margin:0;
   padding:.55em 1.15em;
-  border:1px solid var(--line);
+  border:1px solid var(--line-night);
   border-radius:999px;
   font-size:.78rem;
   letter-spacing:.03em;
   color:inherit;
   opacity:.85;
   white-space:nowrap;
+  transition:border-color var(--t-med);
 }
+.hdr.is-stuck .hdr__badge{ border-color:var(--line); }
 
 /* на широких екранах мітку показуємо тільки в шапці — щоб не дублювати */
 .hero__eyebrow{ display:none; }
@@ -775,7 +787,7 @@ button{ font:inherit; color:inherit; }
   color:var(--ink-soft);
   display:-webkit-box;
   -webkit-box-orient:vertical;
-  -webkit-line-clamp:7;
+  -webkit-line-clamp:4;
   overflow:hidden;
 }
 .rev p::before{ content:"«"; color:var(--accent); margin-right:.15em; }
