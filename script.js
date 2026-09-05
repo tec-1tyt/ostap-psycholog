@@ -146,11 +146,10 @@
   function initHeader() {
     var hdr = $('#hdr');
     var links = $$('.hdr__nav a');
-    var heroH = function () { return (window.innerHeight * 0.72); };
 
     function onScroll() {
       if (!hdr) return;
-      hdr.classList.toggle('is-stuck', (window.scrollY || 0) > heroH());
+      hdr.classList.toggle('is-stuck', (window.scrollY || 0) > 4);
     }
     window.addEventListener('scroll', onScroll, { passive: true });
     onScroll();
