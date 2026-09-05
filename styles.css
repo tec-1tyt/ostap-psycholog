@@ -761,10 +761,6 @@ button{ font:inherit; color:inherit; }
 .dip__meta{ font-size:.82rem; color:var(--ink-faint); }
 
 #rail-rev{
-  display:grid;
-  grid-auto-flow:column;
-  grid-template-rows:repeat(2,max-content);
-  grid-auto-columns:clamp(268px,31vw,380px);
   align-items:stretch;
 }
 
