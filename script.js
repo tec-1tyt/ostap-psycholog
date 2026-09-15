@@ -9,13 +9,13 @@
      --------------------------------------------------------- */
   var CONFIG = {
     email:     '',   // напр. 'ostap@example.com'
-    telegram:  '',   // напр. 'https://t.me/nickname'
+    telegram:  'https://t.me/ostapburiak',
     instagram: '',   // напр. 'https://instagram.com/nickname'
 
     // Якщо є бекенд або Formspree — вставити URL сюди, форма
     // почне слати POST. Якщо порожньо, але вказано email —
     // форма відкриє поштовий клієнт із заповненим листом.
-    formEndpoint: ''
+    formEndpoint: '/api/contact'
   };
 
   var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
