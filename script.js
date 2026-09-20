@@ -287,6 +287,15 @@
       });
       if (bad) { fail('Заповни, будь ласка, всі поля.'); return; }
 
+      var consent = $('#f-consent');
+      var consentField = consent ? consent.closest('.checkfield') : null;
+      if (consent && !consent.checked) {
+        if (consentField) consentField.classList.add('is-bad');
+        fail('Потрібно погодитись на обробку персональних даних.');
+        return;
+      }
+      if (consentField) consentField.classList.remove('is-bad');
+
       var data = {
         name:    $('#f-name').value.trim(),
         contact: $('#f-contact').value.trim(),

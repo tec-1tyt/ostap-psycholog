@@ -864,6 +864,52 @@ button{ font:inherit; color:inherit; }
 .field.is-bad input,
 .field.is-bad textarea{ border-color:#C4553F; }
 
+.checkfield{
+  display:flex;
+  align-items:flex-start;
+  gap:.7em;
+  margin-bottom:18px;
+  cursor:pointer;
+}
+.checkfield input{
+  position:absolute;
+  width:1px; height:1px;
+  opacity:0;
+  pointer-events:none;
+}
+.checkfield__box{
+  flex:0 0 auto;
+  width:20px; height:20px;
+  margin-top:.15em;
+  border:1px solid var(--line-night);
+  border-radius:4px;
+  background:rgba(242,238,231,.05);
+  transition:border-color var(--t-fast), background var(--t-fast);
+  position:relative;
+}
+.checkfield__box::after{
+  content:"";
+  position:absolute;
+  left:6px; top:2px;
+  width:5px; height:10px;
+  border:solid var(--accent);
+  border-width:0 2px 2px 0;
+  transform:rotate(45deg);
+  opacity:0;
+  transition:opacity var(--t-fast);
+}
+.checkfield input:checked + .checkfield__box::after{ opacity:1; }
+.checkfield input:focus-visible + .checkfield__box{
+  outline:none;
+  border-color:var(--accent);
+}
+.checkfield.is-bad .checkfield__box{ border-color:#C4553F; }
+.checkfield__label{
+  font-size:.86rem;
+  color:var(--on-night-soft);
+  line-height:1.45;
+}
+
 .form__status{
   margin:.8em 0 0;
   min-height:1.3em;
