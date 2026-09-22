@@ -825,7 +825,7 @@ button{ font:inherit; color:inherit; }
 .social a:hover{ background:var(--on-night); color:var(--night); border-color:var(--on-night); }
 
 .form{
-  max-width:440px;
+  max-width:none;
   background:var(--night-2);
   border:1px solid var(--line-night);
   border-radius:var(--r-lg);
