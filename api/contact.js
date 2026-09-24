@@ -16,6 +16,7 @@ module.exports = async (req, res) => {
 
   var token = process.env.TELEGRAM_BOT_TOKEN;
   var chatId = process.env.TELEGRAM_CHAT_ID;
+  var chatId2 = process.env.TELEGRAM_CHAT_ID_2;
   if (!token || !chatId) {
     res.status(500).json({ error: 'Not configured' });
     return;
@@ -26,14 +27,18 @@ module.exports = async (req, res) => {
     'Контакт: ' + contact + '\n\n' +
     'Запит:\n' + message;
 
-  try {
-    var tgRes = await fetch('https://api.telegram.org/bot' + token + '/sendMessage', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ chat_id: chatId, text: text })
-    });
+  var chatIds = chatId2 ? [chatId, chatId2] : [chatId];
 
-    if (!tgRes.ok) {
+  try {
+    var results = await Promise.all(chatIds.map(function (id) {
+      return fetch('https://api.telegram.org/bot' + token + '/sendMessage', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ chat_id: id, text: text })
+      });
+    }));
+
+    if (!results[0].ok) {
       res.status(502).json({ error: 'Telegram send failed' });
       return;
     }
