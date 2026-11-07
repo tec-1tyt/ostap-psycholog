@@ -310,10 +310,15 @@
           headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
           body: JSON.stringify(data)
         }).then(function (r) {
+          if (r.status === 429) throw new Error('rate limit');
           if (!r.ok) throw new Error('bad status');
           form.reset();
           ok('Дякую. Я відповім упродовж доби.');
-        }).catch(function () {
+        }).catch(function (err) {
+          if (err && err.message === 'rate limit') {
+            fail('Забагато спроб. Спробуй, будь ласка, за кілька хвилин.');
+            return;
+          }
           fail('Не вдалось надіслати. Напиши, будь ласка, у Telegram або на пошту.');
         });
         return;

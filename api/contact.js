@@ -1,13 +1,36 @@
+var WINDOW_MS = 10 * 60 * 1000;
+var MAX_PER_IP = 3;
+var hits = new Map();
+
+function tooMany(ip) {
+  var now = Date.now();
+  hits.forEach(function (list, key) {
+    var fresh = list.filter(function (t) { return now - t < WINDOW_MS; });
+    if (fresh.length) hits.set(key, fresh); else hits.delete(key);
+  });
+  var list = hits.get(ip) || [];
+  if (list.length >= MAX_PER_IP) return true;
+  list.push(now);
+  hits.set(ip, list);
+  return false;
+}
+
 module.exports = async (req, res) => {
   if (req.method !== 'POST') {
     res.status(405).json({ error: 'Method not allowed' });
     return;
   }
 
+  var ip = String(req.headers['x-forwarded-for'] || '').split(',')[0].trim() || 'unknown';
+  if (tooMany(ip)) {
+    res.status(429).json({ error: 'Too many requests' });
+    return;
+  }
+
   var body = req.body || {};
-  var name = (body.name || '').trim();
-  var contact = (body.contact || '').trim();
-  var message = (body.message || '').trim();
+  var name = String(body.name || '').trim().slice(0, 100);
+  var contact = String(body.contact || '').trim().slice(0, 100);
+  var message = String(body.message || '').trim().slice(0, 2000);
 
   if (!name || !contact || !message) {
     res.status(400).json({ error: 'Missing fields' });
